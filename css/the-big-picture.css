@@ -1,0 +1,41 @@
+/*!
+ * Start Bootstrap - The Big Picture (https://startbootstrap.com/templates/the-big-picture)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-the-big-picture/blob/master/LICENSE)
+ */
+@font-face { font-family: EmLatin; src: url('../fonts/EMLATIN6.ttf'); }
+@font-face { font-family: NotoMono; src: url('../fonts/NotoMono-Regular.ttf'); } 
+
+body {
+  background: url('../images/hangingrock.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.jumbotron {
+    background: none;             /* Transparent background */
+}
+
+.rounded {
+    border-radius:.25rem!important
+}
+
+
+.navbar-default {
+  background-color: #002B36;
+  border-color: #425766;
+}
+
+.text {
+	color:#93A1A1;
+	font-family: NotoMono;
+	font-size: 26px;
+}
+
+.stext {
+	color:#93A1A1;
+	font-family: NotoMono;
+	font-size: 17px;
+}
