@@ -45,3 +45,12 @@ body {
 	font-family: NotoMono;
 	font-size: 17px;
 }
+
+.card {
+    background-color: #002B36;
+    border-color: #93A1A1;
+}
+
+.card-header {
+	border-color: #93A1A1;
+}
