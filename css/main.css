@@ -1,0 +1,91 @@
+/*!
+ * Start Bootstrap - The Big Picture (https://startbootstrap.com/templates/the-big-picture)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-the-big-picture/blob/master/LICENSE)
+ */
+@font-face { font-family: EmLatin; src: url('../fonts/EMLATIN6.ttf'); }
+@font-face { font-family: NotoMono; src: url('../fonts/NotoMono-Regular.ttf'); } 
+
+body {
+  background: url('../images/hangingrock.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.jumbotron {
+    background: none;             /* Transparent background */
+}
+
+.rounded {
+    border-radius:.25rem!important
+}
+
+
+.navbar-default {
+  background-color: #002B36;
+  border-color: #425766;
+}
+
+.text {
+	color:#93A1A1;
+	font-family: NotoMono;
+	font-size: 26px;
+}
+
+.stext {
+	color:#93A1A1;
+	font-family: NotoMono;
+	font-size: 17px;
+}
+
+.atext {
+	color:#FFFFFF;
+	font-family: NotoMono;
+	font-size: 17px;
+}
+
+.card {
+    background-color: #002B36;
+    border-color: #93A1A1;
+}
+
+.card-header {
+	border-color: #93A1A1;
+}
+
+.tab {
+	margin-left: 20px; 
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
