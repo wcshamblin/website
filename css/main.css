@@ -34,10 +34,29 @@ body {
 	font-size: 26px;
 }
 
+.itext {
+  color:#002B36;
+  font-family: NotoMono;
+  font-size: 17px;
+}
+
+
 .stext {
 	color:#93A1A1;
 	font-family: NotoMono;
 	font-size: 17px;
+}
+
+.ltext {
+  color:#002B36;
+  font-family: NotoMono;
+  font-size: 30px;
+}
+
+.litext {
+  color:#93A1A1;
+  font-family: NotoMono;
+  font-size: 30px;
 }
 
 .atext {
@@ -53,6 +72,10 @@ body {
 
 .card-header {
 	border-color: #93A1A1;
+}
+
+.card-footer {
+  border-color: #93A1A1;
 }
 
 .tab {
