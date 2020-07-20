@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>wcshamblin</title>
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+  <link rel="icon" href="../images/hangingrock-icon.jpg">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom" style="background-color: #002B36">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span class="text">Will Shamblin</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/"><span class="stext">Home</span>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/blog"><span class="atext">Blog</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects"><span class="stext">Projects</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/resume"><span class="stext">Résumé</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact"><span class="stext">Contact</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="jumbotron d-flex align-items-center background: none">
+  <div class="container rounded p-3" style="background-color: #002B36">
+    <div class="row">
+      <!-- Post Content Column -->
+      <div class="col-lg-12">
+        <!-- Title -->
+        <h1 class="litext">Switching from ifconfig to ip</h1>
+        <hr style="border-top: 1px solid #93A1A1">
+        <!-- Post Content -->
+        <span class="stext">About a year ago, I realized ifconfig had been deprecated in favor of iproute2 (ip + tc). I thought "Oh, I should probably get used to using ip." And then, I completely forgot about it, and continued using ifconfig. Only recently did I realize how much I've come to rely on ifconfig. When setting up a laptop without internet, I needed to do some NIC operations in order to get my wifi working again, and realized that I didn't have net-tools installed! Typically I'd <span style="background-color:#000000">apt-get install net-tools</span> and be on my merry way, but of course I couldn't do this, because I didn't have internet. I ended up looking at the manpage to figure out how to do what I needed to in ip, and that insipred me to make this migration guide / cheatsheet for migrating from ifconfig to ip. In each section, the relevant ip command is one line below the ifconfig command. Disclaimer! This guide is far from complete, it's just the commands I find handy.<br><br>List all interfaces:<br><span style="background-color:#000000">ifconfig -a<br>ip a</span><br><br>Set interface up/down:<br><span style="background-color:#000000">ifconfig &lt;interface&gt; up/down<br>ip link set &lt;interface&gt; up/down</span><br><br>Change interface address:<br><span style="background-color:#000000">ifconfig &lt;interface&gt; address &lt;address&gt;<br>ip a add &lt;address&gt; dev &lt;interface&gt;</span><br><br>Set interface MAC:<br><span style="background-color:#000000">ifconfig &lt;interface&gt; hw ether &lt;MAC&gt;<br>ip link set dev &lt;interface&gt; address &lt;MAC&gt;
+</span><br><br>Enable / Disable promisc:<br><span style="background-color:#000000">ifconfig &lt;interface&gt; promisc/-promsic<br>ip link set dev &lt;interface&gt; promisc on/off</span>
+
+
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
