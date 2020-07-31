@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>wcshamblin</title>
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+  <link rel="icon" href="../images/hangingrock-icon.jpg">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom" style="background-color: #002B36">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span class="text">Will Shamblin</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/"><span class="stext">Home</span>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/blog"><span class="atext">Blog</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects"><span class="stext">Projects</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/resume"><span class="stext">Résumé</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact"><span class="stext">Contact</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="jumbotron d-flex align-items-center background: none">
+  <div class="container rounded p-3" style="background-color: #002B36">
+    <div class="row">
+      <!-- Post Content Column -->
+      <div class="col-lg-12">
+        <!-- Title -->
+        <h1 class="litext">Logging into Google using Selenium and Python</h1>
+        <hr style="border-top: 1px solid #93A1A1">
+        <!-- Post Content -->
+        <span class="stext">One of my recent automation projects required I log into a Google account and use it to access a website to signup to a service. I figured this would be a fairly simple task, just use Selenium and log in to Google by clicking the signup link provided on the page, right? Well, no. The signup link took me to accounts.google.com with a redirect URI, which uses <a href="https://www.amiunique.org/" target="_blank"><span class="stext"><u>browser fingerprinting</u></span></a> with some other proprietary bot detection to detect drivers, redirecting to an error page that reads "This browser is insecure" if automation is suspected. I tried a couple things to prevent being picked up by bot detection, but in the end, it seemed that as long as I was using Selenium, even by hand, it would instantly send me to the error page after entering my email. After playing around with it a bit more I found certain website's Google sign in seem to have less aggressive bot detection than the website I was automating for. The site I use in this example is StackOverflow's signup page, but there are plenty of other websites that behave similarly, such as Reddit. The main reason I'm using SO is because after the signup page, it doesn't actually create your account, meaning you can abandon the signup process and not pointlessly register an account.<br><br>Here's a code snippet that uses SO to log into Google.<br><br>
+        <pre style="overflow-x: auto;"><span style="color:#458641;" class="stext">from seleniumwire import webdriver
+from selenium.webdriver.common.keys import Keys
+from time import sleep
+from random import randint
+
+account = "account@gmail.com"
+password = "password"
+
+browser = webdriver.Firefox(executable_path = "/path/to/driver")
+browser.get("https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent")
+browser.find_element_by_xpath("//button[@data-provider='google']").click()
+sleep(randint(1,3)/10)
+
+emailform = browser.find_element_by_xpath("//input[@type='email']")
+emailform.send_keys(account)
+emailform.send_keys(Keys.RETURN)
+sleep(randint(1,3)/10)
+passform = browser.find_element_by_xpath("//input[@type='password']")
+passform.send_keys(password)
+passform.send_keys(Keys.RETURN)
+sleep(randint(1,3)/10)</span></pre>
+        After this, visiting a website that requires a Google login pulls up a list of Google accounts to choose from. Continuing the previous code block;<pre style="height: 120px; overflow-x: auto;"><span style="color:#458641;" class="stext">
+browser.find_element_by_xpath(f"//div[@data-identifier='{account}']").click()
+sleep(randint(5, 10)/10)
+browser.find_element_by_id("submit_approve_access").click()</span></pre>And that's it! You should be logged into Google, and have access to whatever website requiring a Google login.
+
+      </span>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
